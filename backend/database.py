@@ -1,4 +1,5 @@
 import os
+import ssl
 from motor.motor_asyncio import AsyncIOMotorClient
 from dotenv import load_dotenv
 
@@ -6,13 +7,19 @@ load_dotenv()
 
 MONGO_DETAILS = os.getenv("MONGODB_URI") # Your Atlas URI
 
-# Configure client with proper SSL/TLS settings for MongoDB Atlas
+# Create SSL context with more permissive settings for compatibility
+ssl_context = ssl.create_default_context()
+ssl_context.check_hostname = False
+ssl_context.verify_mode = ssl.CERT_NONE
+
+# Configure client with SSL context
 client = AsyncIOMotorClient(
     MONGO_DETAILS,
-    tls=True,
-    tlsAllowInvalidCertificates=False,
-    serverSelectionTimeoutMS=5000,
-    connectTimeoutMS=10000,
+    tlsCAFile=None,
+    ssl=True,
+    ssl_cert_reqs=ssl.CERT_NONE,
+    serverSelectionTimeoutMS=30000,
+    connectTimeoutMS=30000,
 )
 
 database = client.hrms_lite
