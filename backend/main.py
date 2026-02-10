@@ -7,7 +7,7 @@ app = FastAPI(title="HRMS Lite API")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"], # In production, replace with your frontend URL
+    allow_origins=["https://hrm-system-lite.netlify.app/"], # In production, replace with your frontend URL
     allow_methods=["*"],
     allow_headers=["*"],
 )

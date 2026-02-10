@@ -4,8 +4,8 @@ A lightweight Human Resource Management System for managing employees and tracki
 
 ## Live Demo
 
-- **Frontend**: [Your Netlify URL]
-- **Backend API**: [Your Render/Railway URL]
+- **Frontend**: https://hrm-system-lite.netlify.app/
+- **Backend API**: https://hrms-lite-jr8e.onrender.com/
 
 ## Features
 
@@ -145,7 +145,7 @@ The app will be available at `http://localhost:5173`
 
 ## Deployment
 
-### Backend Deployment (Render/Railway)
+### Backend Deployment (Render)
 
 #### Render
 
@@ -158,14 +158,6 @@ The app will be available at `http://localhost:5173`
 5. Add environment variables:
    - `MONGODB_URI`: Your MongoDB Atlas connection string
 6. Deploy!
-
-#### Railway
-
-1. Install Railway CLI or use the dashboard
-2. Run `railway login` and `railway init`
-3. Add environment variables:
-   - `MONGODB_URI`: Your MongoDB Atlas connection string
-4. Deploy with `railway up`
 
 ### Frontend Deployment (Netlify)
 
