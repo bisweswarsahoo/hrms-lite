@@ -5,9 +5,14 @@ from models import EmployeeSchema, AttendanceSchema, employee_helper
 
 app = FastAPI(title="HRMS Lite API")
 
+# Enable CORS for frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://hrm-system-lite.netlify.app/"], # In production, replace with your frontend URL
+    allow_origins=[
+        "https://hrm-system-lite.netlify.app",
+        "http://localhost:5173",  # For local development
+    ],
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
